@@ -1,6 +1,9 @@
 package modelo;
 
-public class Usuário extends Pessoa {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario extends Pessoa {
 	
 
 	private float peso;
@@ -9,14 +12,32 @@ public class Usuário extends Pessoa {
 	private int idade;
 	private String academia;
 	private double imc;
+	protected List<Treino> treinos = new ArrayList<>();
+	protected List<Personal> personais = new ArrayList<>();
 	
-	public Usuário(float peso, double altura) {
-		
+
+	public Usuario(String nome, long cep, long cpf, boolean sexo, float peso, double altura, int frequenciaSemana, int idade, String academia) {
+		super();
+		this.nome = nome;
+		this.cep = cep;
+		this.cpf = cpf;
+		this.sexo = sexo;
 		this.peso = peso;
 		this.altura = altura;
-		
+		this.frequenciaSemana = frequenciaSemana;
+		this.idade = idade;
+		this.academia = academia;
+		this.imc = this.calcularIMC();
 	}
 	
+	public void addPersonal(Personal p1) {
+		this.personais.add(p1);
+	}
+	
+	public void addTreino(Treino t1) {
+		this.treinos.add(t1);
+	}
+
 	public float getPeso() {
 		return peso;
 	}
@@ -66,19 +87,47 @@ public class Usuário extends Pessoa {
 	public void setImc(double imc) {
 		this.imc = imc;
 		
-		
 	}
 	
-	public void calcularIMC() {
-		
-		
-		this.imc = this.getPeso() / (this.getAltura() * this.getAltura());	
-		
-	}
-	
-	public void status() {
-		
-		System.out.println(+ this.getImc());
+	public List<Treino> getTreinos() {
+		return treinos;
 	}
 
+	public void setTreinos(List<Treino> treinos) {
+		this.treinos = treinos;
+	}
+
+	public double calcularIMC() {
+			
+		this.imc = this.getPeso() / (this.getAltura() * this.getAltura());
+		return imc;
+	}
+	
+	
+	public void status() {
+		System.out.println("Nome de Usuario: " + this.getNome());
+		System.out.println("CEP: " + this.getCep());
+		System.out.println("CPF: " + this.getCpf());
+		this.Sexo();
+		System.out.println("Peso: " + this.getPeso());
+		System.out.println("Altura " + this.getAltura());
+		System.out.println("Frequencia: " + this.getFrequenciaSemana() + " vezes na semana");
+		System.out.println("Idade: " + this.getIdade());
+		this.getAcademia();
+		System.out.println("IMC: " + this.getImc());
+		System.out.println("--- --- --- ---");
+		for(Treino treino : treinos) {
+			treino.status();
+		}
+		System.out.println("");
+		System.out.println("Personal:");
+		System.out.println("");
+		for(Personal personal : personais) {
+			personal.status();
+		}
+		
+	}
+
+	
+	
 }
