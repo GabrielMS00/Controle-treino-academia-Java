@@ -1,22 +1,24 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Treino {
 	
 	protected String nome;
 	protected String dia;
 	protected float duracao;
-	protected Exercicio exercicios;
+	protected List<Exercicio> exercicios = new ArrayList<>();
 	
 	
 	public Treino(String nome, String dia, float duracao) {
-		super();
 		this.nome = nome;
 		this.dia = dia;
 		this.duracao = duracao;
 	}
 	
 	public void addExercicio(Exercicio e1) {
-		this.exercicios = e1;
+		this.exercicios.add(e1);
 	}
 
 	public String getNome() {
@@ -43,11 +45,11 @@ public class Treino {
 		this.duracao = duracao;
 	}
 
-	public Exercicio getExercicios() {
+	public List<Exercicio> getExercicios() {
 		return exercicios;
 	}
 
-	public void setExercicios(Exercicio exercicios) {
+	public void setExercicios(List<Exercicio> exercicios) {
 		this.exercicios = exercicios;
 	}
 
@@ -55,8 +57,18 @@ public class Treino {
 	public void status() {
 		System.out.println("Nome do treino: " + this.getNome());
 		System.out.println("Dia: " + this.getDia());
-		System.out.println("Duracao: " + this.getDuracao());
-		System.out.println("Exercicios: " + exercicios.getNome());
+		System.out.println("Duracao: " + this.getDuracao() + " hora(s)");
+		System.out.println("");
+		System.out.println("Exercicios:");
+		System.out.println("");
+		for (Exercicio exercicio : exercicios) {
+			System.out.println(exercicio.getNome());
+			System.out.println("Carga: " + exercicio.getCarga() + " Kg");
+			System.out.println("Serie: " + exercicio.getSerie());
+			System.out.println("Repeticoes por serie: " + exercicio.getRepeticao() + " vezes");
+			System.out.println("Tempo de descanco: " + exercicio.getTempoDescanco() + " minutos");
+			System.out.println("--- --- ---");
+		}
 	}
 	
 	
