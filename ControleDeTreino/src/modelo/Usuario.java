@@ -6,30 +6,16 @@ import java.util.List;
 public class Usuario extends Pessoa {
 	
 
-	private float peso;
-	private double altura;
-	private int frequenciaSemana;
-	private int idade;
-	private String academia;
-	private double imc;
+	protected float peso;
+	protected String altura;
+	protected int frequenciaSemana;
+	protected int idade;
+	protected String academia;
 	protected List<Treino> treinos = new ArrayList<>();
 	protected List<Personal> personais = new ArrayList<>();
 	
-
-	public Usuario(String nome, String cep, String cpf, boolean sexo, float peso, double altura, int frequenciaSemana, int idade, String academia) {
-		
-		this.nome = nome;
-		this.cep = cep;
-		this.cpf = cpf;
-		this.sexo = sexo;
-		this.peso = peso;
-		this.altura = altura;
-		this.frequenciaSemana = frequenciaSemana;
-		this.idade = idade;
-		this.academia = academia;
-		this.imc = this.calcularIMC();
-	}
 	
+	// Métodos específicos
 	public void addPersonal(Personal p1) {
 		this.personais.add(p1);
 	}
@@ -37,7 +23,22 @@ public class Usuario extends Pessoa {
 	public void addTreino(Treino t1) {
 		this.treinos.add(t1);
 	}
-
+	
+	
+	// Contrutor + getters e setters
+	public Usuario(String nome, int cep, int cpf, float peso, 
+					String altura, int frequenciaSemana, int idade, String academia) {
+		super();
+		this.nome = nome;
+		this.cep = cep;
+		this.cpf = cpf;
+		this.peso = peso;
+		this.altura = altura;
+		this.frequenciaSemana = frequenciaSemana;
+		this.idade = idade;
+		this.academia = academia;
+	}
+	
 	public float getPeso() {
 		return peso;
 	}
@@ -46,11 +47,11 @@ public class Usuario extends Pessoa {
 		this.peso = peso;
 	}
 	
-	public double getAltura() {
+	public String getAltura() {
 		return altura;
 	}
 	
-	public void setAltura(double altura) {
+	public void setAltura(String altura) {
 		this.altura = altura;
 	}
 
@@ -79,16 +80,6 @@ public class Usuario extends Pessoa {
 		this.academia = academia;
 	}
 	
-
-	public double getImc() {
-		return imc;
-	}
-
-	public void setImc(double imc) {
-		this.imc = imc;
-		
-	}
-	
 	public List<Treino> getTreinos() {
 		return treinos;
 	}
@@ -96,26 +87,17 @@ public class Usuario extends Pessoa {
 	public void setTreinos(List<Treino> treinos) {
 		this.treinos = treinos;
 	}
-
-	public double calcularIMC() {
-			
-		this.imc = this.getPeso() / (this.getAltura() * this.getAltura());
-		return imc;
-	}
 	
-	
-	
+	// Método que mostra o status de cada usuário
 	public void status() {
 		System.out.println("Nome de Usuario: " + this.getNome());
 		System.out.println("CEP: " + this.getCep());
 		System.out.println("CPF: " + this.getCpf());
-		System.out.println("Sexo:" + this.getSexo()); 
 		System.out.println("Peso: " + this.getPeso());
 		System.out.println("Altura " + this.getAltura());
 		System.out.println("Frequencia: " + this.getFrequenciaSemana() + " vezes na semana");
 		System.out.println("Idade: " + this.getIdade());
 		this.getAcademia();
-		System.out.println("IMC: " + this.getImc());
 		System.out.println("--- --- --- ---");
 		for(Treino treino : treinos) {
 			treino.status();
@@ -128,7 +110,6 @@ public class Usuario extends Pessoa {
 		}
 		
 	}
-
 
 	
 	
