@@ -11,14 +11,16 @@ public class Treino {
 	protected List<Exercicio> exercicios = new ArrayList<>();
 	
 	
+	// Métodos específicos
+	public void addExercicio(Exercicio e1) {
+		this.exercicios.add(e1);
+	}
+	
+	// Construtor + getters e setters
 	public Treino(String nome, String dia, float duracao) {
 		this.nome = nome;
 		this.dia = dia;
 		this.duracao = duracao;
-	}
-	
-	public void addExercicio(Exercicio e1) {
-		this.exercicios.add(e1);
 	}
 
 	public String getNome() {
@@ -54,6 +56,7 @@ public class Treino {
 	}
 
 	
+	// Função que mostra o status de cada treino
 	public void status() {
 		System.out.println("Nome do treino: " + this.getNome());
 		System.out.println("Dia: " + this.getDia());
