@@ -3,13 +3,11 @@ package modelo;
 public abstract class Pessoa {
 	
 	protected String nome;
-	protected String cep;
-	protected String cpf;
-	protected boolean sexo;
+	protected int cep;
+	protected int cpf;
 	
 	
-	public String getNome() {
-		
+	public String getNome() {	
 		return nome;
 	}
 	
@@ -17,34 +15,22 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 	
-	public String getCep() {
-		
+	public int getCep() {	
 		return cep;
 	}
 	
-	public void setCep(String cep) {
+	public void setCep(int cep) {
 		this.cep = cep;
 	}
 	
-	public String getCpf() {
-		
+	public int getCpf() {	
 		return cpf;
 	}
 	
-	public void setCpf(String cpf) {
+	public void setCpf(int cpf) {
 		this.cpf = cpf;
 	}
-	
-	public boolean getSexo() {
-		
-		return sexo;
-	}
-	
-	public void setSexo(boolean sexo) {
-		this.sexo = sexo;;
-		
-	}
-	
+
 	
 	
 	
