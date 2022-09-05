@@ -38,6 +38,7 @@ public class Exercicio {
 			this.tempoDescanco = t;
 		}
 		
+		
 		// Método que pega o valor lógico de AreaAtuacao e traduz em uma String
 		public void areaAtuacao() {
 			if(isAreaAtuacao()) {
@@ -46,6 +47,7 @@ public class Exercicio {
 				System.out.println("Membros inferiores");
 			}
 		}
+		
 		
 		// Construtor + getters e setters
 		public Exercicio(String nome, boolean areaAtuacao) {
@@ -103,6 +105,7 @@ public class Exercicio {
 			this.tempoDescanco = tempoDescanco;
 		}
 		
+		// Função que mostra o status de cada exercício
 		public void status() {
 			System.out.println("Nome: " + this.getNome());
 			System.out.println("Carga: " + this.getCarga() + " Kg");
