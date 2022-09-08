@@ -14,9 +14,9 @@ public class Dados {
 	
 	public void fillWithSomeData() {
 		for(int i = 0; i < 2; i++) {
-			usuarios[i] = new Usuario("Usuario"+i, (i+1)*123456, (i+1)*112233, 60.5f, "1.70", 
+			usuarios[i] = new Usuario("Usuario "+i, (i+1)*123456, (i+1)*112233, 60.5f, "1.70", 
 			(i+1)*2, (i+2)*15, "FGA-FIT");
-			personais[i] = new Personal("Usuario"+i, (i+1)*234567, (i+1)*123123, "Segunda, Quarta e Sexta");
+			personais[i] = new Personal("Personal "+i, (i+1)*234567, (i+1)*123123, "Segunda, Quarta e Sexta");
 		}
 	
 	qntUsuarios = 2;
