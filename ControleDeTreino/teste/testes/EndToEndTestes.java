@@ -3,7 +3,6 @@ package testes;
 import org.junit.jupiter.api.Test;
 
 import controle.ControleDados;
-import controle.ControleUsuario;
 import view.TelaDetalhePessoa;
 
 public class EndToEndTestes {
