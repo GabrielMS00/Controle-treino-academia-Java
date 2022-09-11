@@ -1,24 +1,12 @@
 package modelo;
 
-/**
- * A classe Personal define os tipos de dados necessários para a instanciação de um personal no sistema.
- * @author GabrielMarques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class Personal extends Pessoa {
+
 
 	protected String disponibilidade;
 	
-	/**
-	 * Construtor da classe Personal.
-	 * @param nome (Nome do personal)
-	 * @param cep (CEP do personal)
-	 * @param cdf (CPF do personal)
-	 * @param disponibilidade (Nome dos dias da semana e horários que o personal está disponível)
-	 */
 	
+	// Construtor + getters e setters
 	public Personal(String nome, int cep, String cpf, String disponibilidade) {
 		super();
 		this.nome = nome;
@@ -26,8 +14,6 @@ public class Personal extends Pessoa {
 		this.cpf = cpf;
 		this.disponibilidade = disponibilidade;
 	}
-	
-	//getters e setters
 
 	public String getDisponibilidade() {
 		return disponibilidade;
@@ -36,5 +22,20 @@ public class Personal extends Pessoa {
 	public void setDisponibilidade(String disponibilidade) {
 		this.disponibilidade = disponibilidade;
 	}
+	
+	@Override
+	public String toString() {
+		return "Personal [disponibilidade=" + disponibilidade + "]";
+	}
+	
+	// Função que mostra o status de cada personal
+	public void status() {
+		System.out.println("Nome do personal: " + this.getNome());
+		System.out.println("CEP: " + this.getCep());
+		System.out.println("CPF: " + this.getCpf());
+		System.out.println("Disponibilidade: " + this.getDisponibilidade());
+	}
+	
+	
 		
 }

@@ -3,13 +3,6 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A classe Treino define os tipos de dados necessários para a instanciação de um novo treino ao sistema.
- * @author Gabriel Marques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class Treino {
 	
 	protected String nome;
@@ -18,29 +11,18 @@ public class Treino {
 	protected List<Exercicio> exercicios = new ArrayList<>();
 	
 	
-	/**
-	 * Método que acrescenta um novo exercício a um treino.
-	 */
-	
+	// Métodos específicos
 	public void addExercicio(Exercicio e1) {
 		this.exercicios.add(e1);
 	}
 	
-	/**
-	 * Construtor da classe Treino.
-	 * @param nome (Nome do treino)
-	 * @param dia (Nome dos dias da semana que se aplicará o treino)
-	 * @param duracao (Duração de tempo que o treino irá levar até ser concluído)
-	 */
-	
+	// Construtor + getters e setters
 	public Treino(String nome, String dia, float duracao) {
 		this.nome = nome;
 		this.dia = dia;
 		this.duracao = duracao;
 	}
 
-	// getters e setters
-	
 	public String getNome() {
 		return nome;
 	}
@@ -72,5 +54,25 @@ public class Treino {
 	public void setExercicios(List<Exercicio> exercicios) {
 		this.exercicios = exercicios;
 	}
+
+	
+	// Função que mostra o status de cada treino
+	public void status() {
+		System.out.println("Nome do treino: " + this.getNome());
+		System.out.println("Dia: " + this.getDia());
+		System.out.println("Duracao: " + this.getDuracao() + " hora(s)");
+		System.out.println("");
+		System.out.println("Exercicios:");
+		System.out.println("");
+		for (Exercicio exercicio : exercicios) {
+			System.out.println(exercicio.getNome());
+			System.out.println("Carga: " + exercicio.getCarga() + " Kg");
+			System.out.println("Serie: " + exercicio.getSerie());
+			System.out.println("Repeticoes por serie: " + exercicio.getRepeticao() + " vezes");
+			System.out.println("Tempo de descanco: " + exercicio.getTempoDescanco() + " minutos");
+			System.out.println("--- --- ---");
+		}
+	}
+	
 	
 }

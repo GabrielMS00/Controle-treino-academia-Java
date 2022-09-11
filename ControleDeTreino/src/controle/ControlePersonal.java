@@ -2,13 +2,6 @@ package controle;
 
 import modelo.*;
 
-/**
- * A classe ControlePersonal tem a função de fazer a ligação entre modelo.Personal e o pacote view.
- * @author Gabriel MArques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class ControlePersonal {
 
 	private Personal[] p;
@@ -19,11 +12,6 @@ public class ControlePersonal {
 		this.qtdPersonais = d.getQtdPersonais();
 	}
 	
-	/**
-	 * Os atributos nome do personal, durante a listagem, são atribuidos a uma nova String[].
-	 * @return String []
-	 */
-	
 	public String[] getNomePersonal() {
 		String[] s = new String[qtdPersonais];
 		for(int i = 0; i < qtdPersonais; i++) {
@@ -32,8 +20,6 @@ public class ControlePersonal {
 
 		return s;
 	}
-	
-	//getters e setters
 	
 	public int getQtd() {
 		return qtdPersonais;

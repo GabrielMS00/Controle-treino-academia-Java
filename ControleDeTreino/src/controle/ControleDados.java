@@ -2,26 +2,13 @@ package controle;
 
 import modelo.*;
 
-/**
- * A classe ControleDados tem a função de fazer a ligação entre o pacote modelo e o pacote view.
- * @author Gabriel Marques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class ControleDados {
 
 	private Dados d = new Dados();
 	
-	/**
-	 * Chama o método fillWithSomeData() da classe modelo.Dados para que o sistema instancie dados como já cadastrados no sistema
-	 */
-	
 	public ControleDados() {
 		d.fillWithSomeData();
 	}
-	
-	//getters e setters
 	
 	public Dados getDados() {
 		return d;
@@ -46,17 +33,6 @@ public class ControleDados {
 		return this.d.getQntPersonais();
 	}
 	
-	/**
-	 * Método que adiciona ou edita usuários no sistema.
-	 * @param dadosUsuarios[1] (nome ; usuário)
-	 * @param dadosUsuario[2] (cep ; usuário)
-	 * @param dadosUsuario[3] (cpf ; usuário)
-	 * @param dadosUsuario[4] (peso ; usuário)
-	 * @param dadosUsuario[5] (altura ; usuário)
-	 * @param dadosUsuario[6] (frequenciaSemana ; usuário) 
-	 * @return boolean
-	 */
-	
 	public boolean inserirEditarUsuario(String[] dadosUsuarios) {
 		
 		Usuario u = new Usuario(dadosUsuarios[1], Integer.parseInt(dadosUsuarios[3]), dadosUsuarios[2], Float.parseFloat(dadosUsuarios[4]), dadosUsuarios[5],
@@ -66,15 +42,6 @@ public class ControleDados {
 		
 	}
 	
-	/**
-	 * Método que adiciona ou edita personal no sistema
-	 * @param dadosPersonal[1] (nome ; Personal)
-	 * @param dadosPersonal[2] (cep ; Personal)
-	 * @param dadosPersonal[3] (cpf ; Personal)
-	 * @param dadosPersonal[4] (disponibilidade ; Personal)
-	 * @return boolean
-	 */
-	
 	public boolean inserirEditarPersonal(String[] dadosPersonais) {
 		
 		Personal p = new Personal(dadosPersonais[1], Integer.parseInt(dadosPersonais[3]), 
@@ -83,12 +50,6 @@ public class ControleDados {
 		return true;
 		
 	}
-	
-	/**
-	 * Método que exclui um usuário do sistema.
-	 * @param i (getUsuarios()[i] ; modelo.Dados)
-	 * @return boolean
-	 */
 	
 	public boolean removerUsuario(int i) {
 		
@@ -114,12 +75,6 @@ public class ControleDados {
 		}
 	}
 		
-	/**
-	 * Método que exclui um personal do sistema.
-	 * @param i (getPersonal()[i] ; modelo.Dados)
-	 * @return boolean
-	 */
-	
 		public boolean removerPersonal(int i) {
 			
 			String personalRemovido = d.getPersonais()[i].getNome();
@@ -143,6 +98,8 @@ public class ControleDados {
 			}
 		
 	}
+
+
 	
 	
 }

@@ -1,23 +1,15 @@
 package modelo;
 
-/**
- * A classe Exercício define os tipos de dados necessários para a instanciação de um novo exercício no sistema.
- * @author Gabriel Marques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class Exercicio {
 
 		protected String nome;
 		protected int carga;
-		protected String areaAtuacao;
+		protected boolean areaAtuacao;
 		protected int serie;
 		protected int repeticao;
 		protected double tempoDescanco;
 		
 		// Métodos específicos
-		
 		public void aumentarCarga() {
 			this.carga ++;
 		}
@@ -44,22 +36,26 @@ public class Exercicio {
 		
 		public void editarTempoDescanco(float t) {
 			this.tempoDescanco = t;
-		}	
+		}
 		
-		/**
-		 * Construtor da classe Exercicio.
-		 * @param nome (Nome que o exercicio possui)
-		 * @param areaAtuacao Recebe (True) caso o exercício seja para membros superiores e (false) caso seja para membros inferiores  
-		 */
 		
-		public Exercicio(String nome, String areaAtuacao) {
+		// Método que pega o valor lógico de AreaAtuacao e traduz em uma String
+		public void areaAtuacao() {
+			if(isAreaAtuacao()) {
+				System.out.println("Membros superiores");
+			} else {
+				System.out.println("Membros inferiores");
+			}
+		}
+		
+		
+		// Construtor + getters e setters
+		public Exercicio(String nome, boolean areaAtuacao) {
 			super();
 			this.nome = nome;
 			this.areaAtuacao = areaAtuacao;
 		}
 
-		//getters e setters
-		
 		public String getNome() {
 			return nome;
 		}
@@ -75,12 +71,13 @@ public class Exercicio {
 		public void setCarga(int carga) {
 			this.carga = carga;
 		}
-		
-		public String getAreaAtuacao() {
+
+		public boolean isAreaAtuacao() {
 			return areaAtuacao;
 		}
+		
 
-		public void setAreaAtuacao(String areaAtuacao) {
+		public void setAreaAtuacao(boolean areaAtuacao) {
 			this.areaAtuacao = areaAtuacao;
 		}
 
@@ -106,6 +103,20 @@ public class Exercicio {
 
 		public void setTempoDescanco(double tempoDescanco) {
 			this.tempoDescanco = tempoDescanco;
-		}		
+		}
+		
+		// Função que mostra o status de cada exercício
+		public void status() {
+			System.out.println("Nome: " + this.getNome());
+			System.out.println("Carga: " + this.getCarga() + " Kg");
+			areaAtuacao();
+			System.out.println(this.getSerie() + " Series");
+			System.out.println("Repeticao: " + this.getRepeticao() + " vezes");
+			System.out.println("Tempo de descanco: " + this.getTempoDescanco() + " minutos");
 			
+		}
+
+			
+	
+		
 }

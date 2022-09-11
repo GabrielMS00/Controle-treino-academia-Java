@@ -5,13 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
-/**
-* Janela com todas as opções que o usuário possui no Menu.
-* @author Gabriel Marques de Souza
-* @since Setembro 2022
-* @version 1.0
-*/
-
 public class TelaMenu implements ActionListener{
 	
 	private static JFrame janela = new JFrame("Controle de Treinos");
@@ -21,9 +14,6 @@ public class TelaMenu implements ActionListener{
 	private static JButton personal = new JButton("Personal");
 	public static ControleDados dados = new ControleDados();
 	
-	/**
-	 * Construtor do Menu
-	 */
 	
 	public TelaMenu() {
 		
@@ -53,9 +43,6 @@ public class TelaMenu implements ActionListener{
 		treino.addActionListener(menu);
 	}
 	
-	/**
-	 * Configurações para as ações ao serem selecionados os botões Usuário, Personal ou Treino
-	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -68,9 +55,11 @@ public class TelaMenu implements ActionListener{
 		
 		if(src == treino)
 			JOptionPane.showMessageDialog(null, 
-					"Esta opção ainda está em desenvolvimento\n"
-					+ "logo será implementada ao software", null, 
+					"Ainda precisam ser implementadas as funcionalidades\n"
+					+ "relacionadas aos treinos", null, 
 					JOptionPane.INFORMATION_MESSAGE);
 	}
+
+
 	
 }

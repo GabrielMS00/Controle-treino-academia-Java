@@ -3,15 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A classe Usuario define os tipos de dados necessários para a instanciação de um usuário do sistema.
- * @author Gabriel Marques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class Usuario extends Pessoa {
 	
+
 	protected float peso;
 	protected String altura;
 	protected int frequenciaSemana;
@@ -20,34 +14,19 @@ public class Usuario extends Pessoa {
 	protected List<Treino> treinos = new ArrayList<>();
 	protected List<Personal> personais = new ArrayList<>();
 	
-	/**
-	 * Método que associa um novo personal a um usuário.
-	 */
 	
+	
+	// Métodos específicos
 	public void addPersonal(Personal p1) {
 		this.personais.add(p1);
 	}
-	
-	/**
-	 * Método que associa um novo treino a um usuário.
-	 */
 	
 	public void addTreino(Treino t1) {
 		this.treinos.add(t1);
 	}
 	
-	/**
-	 * Construtor da classe Usuario.
-	 * @param nome (Nome do usuário)
-	 * @param cep (CEP do usuário)
-	 * @param cpf (CPF do usuário)
-	 * @param peso (Peso do usuário)
-	 * @param altura (Altura do usuário)
-	 * @param frequenciaSemana (Quantas vezes o usuário visita a academia por semana)
-	 * @param idade (Idade do usuário)
-	 * @param academia (Nome da academia visitada pelo usuário)
-	 */
 	
+	// Contrutor + getters e setters
 	public Usuario(String nome, int cep, String cpf, float peso, 
 					String altura, int frequenciaSemana, int idade, String academia) {
 		super();
@@ -60,8 +39,6 @@ public class Usuario extends Pessoa {
 		this.idade = idade;
 		this.academia = academia;
 	}
-	
-	// getters e setters
 	
 	public float getPeso() {
 		return peso;
@@ -111,5 +88,36 @@ public class Usuario extends Pessoa {
 	public void setTreinos(List<Treino> treinos) {
 		this.treinos = treinos;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Usuario [peso=" + peso + ", altura=" + altura + ", frequenciaSemana=" + frequenciaSemana + ", idade="
+				+ idade + ", academia=" + academia + ", treinos=" + treinos + ", personais=" + personais + "]";
+	}
+
+	// Método que mostra o status de cada usuário
+	public void status() {
+		System.out.println("Nome de Usuario: " + this.getNome());
+		System.out.println("CEP: " + this.getCep());
+		System.out.println("CPF: " + this.getCpf());
+		System.out.println("Peso: " + this.getPeso());
+		System.out.println("Altura " + this.getAltura());
+		System.out.println("Frequencia: " + this.getFrequenciaSemana() + " vezes na semana");
+		System.out.println("Idade: " + this.getIdade());
+		this.getAcademia();
+		System.out.println("--- --- --- ---");
+		for(Treino treino : treinos) {
+			treino.status();
+		}
+		System.out.println("");
+		System.out.println("Personal:");
+		System.out.println("");
+		for(Personal personal : personais) {
+			personal.status();
+		}
+		
+	}
+	
 	
 }

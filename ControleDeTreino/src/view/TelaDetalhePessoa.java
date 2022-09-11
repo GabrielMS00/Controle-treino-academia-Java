@@ -11,13 +11,6 @@ import javax.swing.JTextField;
 
 import controle.ControleDados;
 
-/**
-* Janela que detalha informações de usuários e de personais, mostrando todos seus atributos e valores.
-* @author Gabriel Marques de Souza
-* @since Setembro 2022
-* @version 1.0
-*/
-
 public class TelaDetalhePessoa implements ActionListener {
 
 	private JFrame janela;
@@ -46,11 +39,6 @@ public class TelaDetalhePessoa implements ActionListener {
 	private int posicao;
 	private int opcao;
 	private String s;
-	
-	/**
-	 * Método que especifica as informações de usuários ou personais ao clicar em seu nome e adiciona botões 
-	 * para excluir ou salvar os dados relacionados a cada classe (usuário ou personal).
-	 */
 	
 	public void inserirEditar(int op, ControleDados d, 
 			TelaPessoa p, int pos) {
@@ -174,16 +162,12 @@ public class TelaDetalhePessoa implements ActionListener {
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 250);
+		this.janela.setSize(400, 400);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
 	}
-	
-	/**
-	 * Salva as informações ao cadastrar novos usuários ou novos personais.
-	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -226,34 +210,29 @@ public class TelaDetalhePessoa implements ActionListener {
 			}
 		}
 
-		/**
-		 * Exclui usuários ou personais caso seja escolhido a opção de (Excluir).
-		 */
-		
 		if(src == botaoExcluir) {
 			boolean res = false;
 
-			if (opcao == 3) {//exclui usuário
+			if (opcao == 3) {//exclui aluno
 				res = dados.removerUsuario(posicao);
 				if (res) mensagemSucessoExclusao(); 
 				else mensagemErroExclusaoUsuario(); 
 			}
 				
-			if (opcao == 4){ //exclui personal
+			if (opcao == 4){ //exclui professor
 				res = dados.removerPersonal(posicao);
 				if (res) mensagemSucessoExclusao(); 
 				else mensagemErroExclusaoPersonal(); 
 			}
+
+
 			
 		}
 	}
 	
-	/**
-	 * Apresenta as mensagens nos casos de:
-	 * (Os dados forem cadastrados com sucesso)
-	 * (Os dados foram salvos com sucesso)
-	 * (Erro ao cadastrar usuários ou personais)
-	 */
+	public JTextField getTextFieldCpf() {
+		return valorCpf;
+	}
 	
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
@@ -284,5 +263,7 @@ public class TelaDetalhePessoa implements ActionListener {
 		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n ", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
+
+
 
 }

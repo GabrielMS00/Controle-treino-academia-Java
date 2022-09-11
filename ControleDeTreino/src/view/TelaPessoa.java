@@ -6,13 +6,6 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
-/**
-* Janela que mostra os dados dos usuários ou dos personais cadastrados no sistema.
-* @author Gabriel Marques de Souza
-* @since Setembro 2022
-* @version 1.0
-*/
-
 public class TelaPessoa implements ActionListener, ListSelectionListener {
 
 	private JFrame janela;
@@ -103,9 +96,6 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 			
 	}	
 	
-	/**
-	 * Método que, a depender da opção esolhida, pode realizar diferentes ações: abrir TelaDetalhePessoa ou atualizar a lista de informações
-	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -147,3 +137,4 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 	}
 	
 }
+

@@ -2,27 +2,17 @@ package controle;
 
 import modelo.*;
 
-/**
- * A classe ControleUsuario tem a função de fazer a ligação entre modelo.Usuario e o pacote view
- * @author Gabriel Marques de Souza
- * @since Setembro 2022
- * @version 1.0
- */
-
 public class ControleUsuario {
 	
 	private Usuario[] u;
 	private int qtdUsuarios;
+
+	
 	
 	public ControleUsuario(ControleDados d) {
 		u = d.getUsuarios();
 		qtdUsuarios = d.getQtdUsuarios();
 	}
-	
-	/**
-	 * Os atributos nome do Usuario, durante a listagem, são atribuidos a uma nova String[].
-	 * @return String[]
-	 */
 	
 	public String[] getNomeUsuario() {
 		String[] s = new String[qtdUsuarios];
@@ -32,8 +22,6 @@ public class ControleUsuario {
 		
 		return s;
 	}
-	
-	//getters e setters
 	
 	public int getQtd() {
 		return qtdUsuarios;
@@ -71,6 +59,7 @@ public class ControleUsuario {
 		String numIdade = String.valueOf(u[i].getIdade());
 		return numIdade;
 	}
+	
 	
 	public void setQtdUsuarios(int qtdUsuarios) {
 		this.qtdUsuarios = qtdUsuarios;
